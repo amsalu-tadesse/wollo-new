@@ -543,6 +543,51 @@
 
                                                                 </tr>
                                                             @endforeach
+
+
+                                                            <tr data-id="{{ $fo->id + 1}}">
+                                                                <td>
+
+                                                                    <?php
+
+                                                                    $fdate = Carbon::today();
+
+                                                                    $tdate = Carbon::today();
+                                                                   // $experience = "Extra";//$fo->positionyouworked;
+                                                                    $days = $tdate->diffInDays($fdate);
+                                                                    $months = $tdate->diffInMonths($fdate);
+
+                                                                    $years = $tdate->diffInYears($fdate);
+
+                                                                    $time = $tdate->diff($fdate);
+
+                                                                  //  echo $time->y, '-', $time->m, '-', $time->d, ' (', $experience, ')';
+                                                                    ?>
+
+                                                                   From <input type="text" name="from" id="from" placeholder="yyyy-mm-dd"> <br>
+                                                                   To &nbsp; &nbsp;&nbsp;&nbsp;<input type="text" name="to" id="to" placeholder="yyyy-mm-dd">
+
+
+                                                                </td>
+
+                                                                <td>
+                                                                    <div class="col-md-10">
+
+                                                                        <select
+                                                                            class="form-control custom-select   mt-15" id="selection2">
+                                                                            <option selected>Select</option>
+                                                                            <option value="0">0</option>
+                                                                            <option value="0.5">1/2</option>
+                                                                            <option value="1">1</option>
+                                                                        </select>
+
+                                                                    </div>
+                                                                </td>
+                                                                <td id="add2"></td>
+                                                            </tr>
+
+
+
                                                             <tr>
                                                                 <td colspan="2" class="text-center">ድምር</td>
 
@@ -584,12 +629,22 @@
         </div>
     </div>
 @endsection
+
 @section('javascript')
     <script>
         $(document).ready(function() {
             var totalYear = 0;
             var totalMonth = 0;
             var totalDay = 0;
+
+        // Get the current date
+        var currentDate = new Date().toISOString().substr(0, 10);
+
+        // Set the value of the input field
+        document.getElementById("from").value = currentDate;
+        document.getElementById("to").value = currentDate;
+
+
 
             $('.select').on('change', function() {
                 // Reset the totals when a new value is selected
@@ -700,25 +755,6 @@
                     var all = yearDifference + '-' + monthDifference + '-' + dayDifference;
 
 
-
-
-
-
-
-
-                    // var evaluate = enddate - startdate;
-
-                    // var diffInDays = Math.floor(evaluate / (1000 * 60 * 60 * 24));
-                    // var multiply = diffInDays * selectedValue;
-
-                    // var year = parseInt(multiply / 365)
-                    // var diff = multiply % 365;
-
-                    // var month = parseInt(diff / 30)
-                    // var diffday = parseInt(diff - (month * 30))
-
-                    // var all = year + '-' + month + '-' + diffday;
-
                     totalYear += yearDifference;
                     totalMonth += monthDifference;
                     totalDay += dayDifference;
@@ -739,6 +775,116 @@
                 var total = totalYear + '-' + totalMonth + '-' + totalDay;
                 $('#total-year').text(total);
             });
+
+
+
+
+            $('#selection2').on('change', function() {
+                // Reset the totals when a new value is selected
+                totalYear = 0;
+                totalMonth = 0;
+                totalDay = 0;
+
+                // Iterate over each select element and calculate the sum
+                
+                    var selectedValue = parseFloat($(this).val());
+                    var startdate = new Date($("#from").val());
+                    var enddate = new Date($("#to").val());
+
+                    const years = startdate.getFullYear();
+                    const months = startdate.getMonth() + 1;
+                    const days = startdate.getDate();
+                    const years2 = enddate.getFullYear();
+                    const months2 = enddate.getMonth() + 1;
+                    const days2 = enddate.getDate();
+                    let dayDifferenceb = (days2 - days);
+                    let monthDifferenceb = (months2 - months);
+                    let yearDifferenceb = (years2 - years);
+                    if (dayDifferenceb < 0) {
+                        dayDifferenceb += 30;
+                        monthDifferenceb -= 1;
+
+                    } else {
+                        dayDifferenceb = (days2 - days);
+                        monthDifferenceb = monthDifferenceb;
+
+                    }
+                    if (monthDifferenceb < 0) {
+                        monthDifferenceb += 12;
+                        yearDifferenceb -= 1;
+                    } else {
+                        monthDifferenceb = (months2 - months);
+                        yearDifferenceb = yearDifferenceb;
+                    }
+
+                    let dayDifference = dayDifferenceb * selectedValue;
+                    let monthDifference = monthDifferenceb * selectedValue;
+                    let yearDifference = yearDifferenceb * selectedValue;
+
+                    if (selectedValue == 0.5) {
+                        if (yearDifferenceb % 2 != 0) {
+                            yearDifference = parseInt(yearDifference);
+                            console.log(yearDifference);
+                            // monthDifference+=6
+                            monthDifference = 6 + (monthDifference);
+                            //    console.log(monthDifference);
+                            if (monthDifference >= 12) {
+                                monthDifference = 0;
+                                yearDifference = yearDifference + 1
+
+                            }
+
+
+                        } else {
+                            yearDifference = parseInt(yearDifference);
+                            monthDifference = monthDifference;
+
+                        }
+                        if (monthDifferenceb % 2 != 0) {
+                            monthDifference = parseInt(monthDifference)
+                            dayDifference = dayDifference + 15
+
+                        } else {
+                            monthDifference = parseInt(monthDifference)
+                            dayDifference = dayDifference
+                        }
+                        if (dayDifferenceb % 2 != 0) {
+                            dayDifference = parseInt(dayDifference);
+                        }
+
+
+                    }
+
+                    if (dayDifference < 0) {
+                        dayDifference += 30;
+                        monthDifference -= 1;
+                    }
+
+                    if (monthDifference < 0) {
+                        monthDifference += 12;
+                        yearDifference -= 1;
+                    }
+                  
+                    var all = yearDifference + '-' + monthDifference + '-' + dayDifference;
+                    $(this).closest('tr').find('#add2').text(all);
+               
+            });
+
+
+
+
+
+
+
+
+
+
+
+
+
         });
+
+
+
     </script>
 @endsection
