@@ -796,6 +796,7 @@
 
                var total = totalYear + '-' + totalMonth + '-' + totalDay;
                 $('#total-year').text(total);
+                $('#remark').val(total);
                 
             });
 
