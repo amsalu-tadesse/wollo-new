@@ -140,7 +140,7 @@ class ResourceController extends Controller
 
     public function createhr($prod_id)
     {
-        // dd($prod_id);
+    //dd($prod_id);
         $form = Form::findOrFail($prod_id);
 
         $forms = experience::where('form_id', $form->id)->get();
