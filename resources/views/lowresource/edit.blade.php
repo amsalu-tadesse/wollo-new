@@ -388,7 +388,7 @@
                                             <div class="row form-group">
                                                 <label for="resultbased">ለውጤት ተኮር ምዘና </label>
                                                 <input type="float"
-                                                    value="{{ round($hr->form->resultOfrecentPerform * 0.3, 2) }}"
+                                                    value="{{ round($hr->form->resultOfrecentPerform * 0.3, 3) }}"
                                                     class="form-control @error('resultbased') is-invalid @enderror"
                                                     id="resultbased" placeholder="ለውጤት ተኮር ምዘና " name="resultbased"
                                                     min="0" max="30">
@@ -594,6 +594,7 @@
                 totalMonth = 0;
                 totalDay = 0;
                 var selected_right_column = '';
+                var counter = 0;
                
                 // Iterate over each select element and calculate the sum
                 $('.select').each(function() {
@@ -729,9 +730,11 @@
                     }
 
                     $(this).closest('tr').find('#add').text(all);
-
-                    selected_right_column += all+'\n';
-                    $('#remark').val(selected_right_column);
+                    
+                    counter ++;
+                    // selected_right_column += all+'\n';
+                    selected_right_column += counter+'.'+all+'\n';
+                    //$('#remark').val(selected_right_column);
                     // console.log(selected_right_column);
 
                 });
@@ -742,6 +745,12 @@
 
                var total = totalYear + '-' + totalMonth + '-' + totalDay;
                 $('#total-year').text(total);
+
+
+                counter ++;
+                selected_right_column += counter+'. '+total+'\n';
+                $('#remark').val(selected_right_column);
+               
                
 
                

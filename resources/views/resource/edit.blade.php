@@ -449,10 +449,12 @@
                                                     </span>
                                                 @enderror
                                             </div>
+
+                                            
                                             <div class="row form-group">
                                                 <label for="lastName">ለውጤት ተኮር ምዘና </label>
                                                 <input class="form-control" @error('resultbased') is-invalid @enderror"
-                                                    id="resultbased" placeholder="" value="{{ $hr->resultbased }}"
+                                                    id="resultbased" placeholder="" value="{{ round($hr->resultbased,3) }}"
                                                     type="float" name="resultbased" min="0" max="10">
                                                 @error('resultbased')
                                                     <span class=" error invalid-feedback">
@@ -666,6 +668,7 @@
                 totalMonth = 0;
                 totalDay = 0;
                 var selected_right_column = '';
+                var counter = 0;
                
                 // Iterate over each select element and calculate the sum
                 $('.select').each(function() {
@@ -799,11 +802,11 @@
                         totalYear = totalYear + 1;
                         totalMonth = totalMonth - 12;
                     }
-
+                    counter ++;
                     $(this).closest('tr').find('#add').text(all);
 
-                    selected_right_column += all+'\n';
-                    $('#remark').val(selected_right_column);
+                    selected_right_column += counter+'. '+all+'\n';
+                   // $('#remark').val(selected_right_column);
                     // console.log(selected_right_column);
 
                 });
@@ -815,7 +818,9 @@
                var total = totalYear + '-' + totalMonth + '-' + totalDay;
                 $('#total-year').text(total);
                
-
+                counter ++;
+                selected_right_column += counter+'. '+total+'\n';
+                $('#remark').val(selected_right_column);
                
                 let yrs = $("#yrs").text();
                 let y = yrs.slice(1);
