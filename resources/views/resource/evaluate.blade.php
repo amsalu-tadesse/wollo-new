@@ -574,8 +574,8 @@
                                                             <tr data-id="{{ $fo->id + 2}}">
                                                                 <td>
 
-                                                                   From <input type="text" name="from2" id="from2" placeholder="yyyy-mm-dd"> <br>
-                                                                   To &nbsp; &nbsp;&nbsp;&nbsp;<input type="text" name="to2" id="to2" placeholder="yyyy-mm-dd">
+                                                                   From <input type="text"  value="" name="from2" id="from2" placeholder="yyyy-mm-dd"> <br>
+                                                                   To &nbsp; &nbsp;&nbsp;&nbsp;<input type="text"  value="" name="to2" id="to2" placeholder="yyyy-mm-dd">
 
 
                                                                 </td>
@@ -810,11 +810,33 @@
                     //console.log("TWO");
                     counter ++;
 
-                   // selected_right_column += all+'\n';
-                    selected_right_column += counter+'. '+all+'\n';
-                    //$('#remark').val(selected_right_column);
-                    // console.log(selected_right_column);
+                    var firstColumnData = $(this).closest('tr').find('td:first-child').text().trim();
+                    if (firstColumnData.startsWith("From")) {
+                        
+                        let from = $("#from").val();
+                        let to = $("#to").val();
+                        let from2 = $("#from2").val();
+                        let to2 = $("#to2").val();
+                        var from_to = from + ' to ' + to;
+                        var from_to2 = from2 + ' to ' + to2;
 
+                        if($(this).hasClass('selection'))
+                        {
+                            selected_right_column += counter+'. '+' ('+ from_to.trim() + ') '+ all+'\n';
+                        }
+
+                        else 
+                        {
+                            selected_right_column += counter+'. '+' ('+ from_to2.trim() + ') '+ all+'\n';
+                        }
+                       
+
+                    }
+                    else 
+                    {
+                        selected_right_column += counter+'. '+' '+ firstColumnData.trim() + ' '+ all+'\n';
+
+                    }
                 });
 
                 totalYear = totalYear;
@@ -824,8 +846,8 @@
                var total = totalYear + '-' + totalMonth + '-' + totalDay;
                 $('#total-year').text(total);
 
-                counter ++;
-                selected_right_column += counter+'. '+total+'\n';
+                 
+                selected_right_column += 'Sum: '+total+'\n';
                 $('#remark').val(selected_right_column);
                
 
