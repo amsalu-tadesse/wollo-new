@@ -484,7 +484,7 @@
                                                 <label for="resultbased">ለውጤት ተኮር ምዘና </label>
                                                 <input class="form-control @error('resultbased') is-invalid @enderror"
                                                     id="resultbased" placeholder="ለውጤት ተኮር"
-                                                    value="{{ round($form->resultOfrecentPerform * 0.1, 2) }}" type="float"
+                                                    value="{{ round($form->resultOfrecentPerform * 0.1, 3) }}" type="float"
                                                     name="resultbased" min="0" max="10">
                                                 @error('resultbased')
                                                     <span class=" error invalid-feedback">
