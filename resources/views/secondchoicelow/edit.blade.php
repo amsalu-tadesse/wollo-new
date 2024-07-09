@@ -385,7 +385,7 @@
                                         <div class="row form-group">
                                             <label for="resultbased">ለውጤት ተኮር ምዘና </label>
                                             <input type="float"
-                                                value="{{ round($hr->form->resultOfrecentPerform * 0.3, 2) }}"
+                                                value="{{ round($hr->form->resultOfrecentPerform * 0.3, 3) }}"
                                                 class="form-control @error('resultbased') is-invalid @enderror"
                                                 id="resultbased" placeholder="ለውጤት ተኮር ምዘና " name="resultbased"
                                                 min="0" max="30">
