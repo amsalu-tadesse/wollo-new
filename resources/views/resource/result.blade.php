@@ -7,7 +7,7 @@
             <p>{{ $message }}</p>
         </div>
     @endif
-    @role('hr')
+    @role('hr|hr2')
         <div class="container">
 
             <section class="hk-sec-wrapper mt-100">
@@ -618,7 +618,7 @@
 
     <div class="container">
         <section class="hk-sec-wrapper mt-100">
-            @role('hr')
+            @role('hr|hr2')
                 <div class="pull-right hk-sec-title">
 
                     {{-- <a href="{{ url('positionhigh') }}" class=" btn btn-dark mr-25"> back </a> --}}
@@ -629,7 +629,7 @@
                 <div class="col-sm">
                     <div class="table-wrap ">
                         <div class="table-responsive">
-                            @role('hr')
+                            @role('hr|hr2')
                                 <table id="datable_3" class="table table-hover table-bordered w-100  pb-30">
                                 @endrole
                                 @role('president')
@@ -640,7 +640,7 @@
                                             <th>ተ.ቁ</th>
 
                                             <th>ሙሉ ስም</th>
-                                            @role('hr')
+                                            @role('hr|hr2')
                                                 <th>ውጤት ሰጪ ከኮሚቴ</th>
 
                                                 <th>ለትምህርት ዝግጅት የሚሰጥ ነጥብ(25%)</th>
@@ -1119,7 +1119,7 @@
                 <div class="col-sm">
                     <div class="table-wrap ">
                         <div class="table-responsive">
-                            @role('hr')
+                            @role('hr|hr2')
                                 <table id="datable_6" class="table table-hover table-bordered w-100  pb-30">
                                 @endrole
                                 @role('president')
@@ -1130,7 +1130,7 @@
                                             <th>ተ.ቁ</th>
 
                                             <th>ሙሉ ስም</th>
-                                            @role('hr')
+                                            @role('hr|hr2')
                                                 <th>ውጤት ሰጪ ከኮሚቴ</th>
 
                                                 <th>ለትምህርት ዝግጅት የሚሰጥ ነጥብ(25%)</th>
@@ -1157,7 +1157,7 @@
                                         </tr>
                                     </thead>
 
-                                    @role('hr')
+                                    @role('hr|hr2')
                                         <tbody>
                                             <?php
                                             $j = 0;

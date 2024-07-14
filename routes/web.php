@@ -128,7 +128,7 @@ Route::get('/step-two', [MultiformController::class, 'createStepTwo'])->name('mu
 Route::middleware([
     'auth:sanctum',
     'verified',
-    'role:hr|admin|president|user',
+    'role:hr|hr2|admin|president|user',
 
 ])->group(
     function () {
@@ -154,7 +154,7 @@ Route::middleware([
 Route::middleware([
     'auth:sanctum',
     'verified',
-    'role:hr',
+    'role:hr|hr2',
 ])->group(function () {
     Route::resource('/resource', ResourceController::class);
     Route::get('/resource/add/{id}', [ResourceController::class, 'createhr'])->name('addHr');
@@ -192,7 +192,7 @@ Route::middleware([
 Route::middleware([
     'auth:sanctum',
     'verified',
-    'role:hr|president',
+    'role:hr|president|hr2',
 
 ])->group(
     function () {

@@ -491,7 +491,7 @@
 
         </div>
     @endrole
-    @role('hr')
+    @role('hr|hr2')
     <div class="container">
 
         <section class="hk-sec-wrapper mt-100">
