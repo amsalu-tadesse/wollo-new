@@ -25,23 +25,23 @@
                             <thead>
                                 <tr>
                                     <th>ተቁ</th>
-
-
-
-
                                     <th>የሚወዳደሩበት የስራ መደብ</th>
-
-
-
-
-
-
-
                                 </tr>
                             </thead>
                             <tbody>
                         
                                 @foreach ($forms as $i => $form )
+                                
+
+                                @role('hr2')
+                                @if(str_contains($form->job_category->job_category, 'ዋናው ግቢ') or 
+                                str_contains($form->job_category->job_category, 'ጢጣ'))
+                                
+                                    @continue; 
+                                
+                                @endif
+                                @endrole
+
                                 
                                 @if($form->position_type_id==2)
                                 
