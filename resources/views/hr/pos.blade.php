@@ -7,6 +7,10 @@
             <p>{{ $message }}</p>
         </div>
     @endif
+    @role('hr2')
+
+    @else
+
     <div class="container">
         <section class="hk-sec-wrapper mt-100">
             <div class="pull-right hk-sec-title">
@@ -51,6 +55,10 @@
             </div>
         </section>
     </div>
+@endrole
+    @role('hr2')
+
+    @else
     <div class="container">
         <section class="hk-sec-wrapper mt-100">
             <div class="pull-right hk-sec-title">
@@ -95,6 +103,8 @@
             </div>
         </section>
     </div>
+    @endrole
+    
     <div class="container">
         <section class="hk-sec-wrapper mt-100">
             <div class="pull-right hk-sec-title">
@@ -116,21 +126,34 @@
                                 $j = 0;
                                 ?>
                                 @foreach ($forms as $i => $form)
-                                @if($form->category!='Team_Leader' &&  $form->category!='Executive')
-                                    <tr>
-                                        <td>{{ ++$j}}</td>
-                                        <td>
-                                            <form action="" method="POST"><a
-                                                    href="{{ route('posDetail', $form->id) }}" class="mr-25"
-                                                    data-toggle="tooltip"
-                                                    data-original-title="show">{{ $form->job_category->job_category }}\{{ $form->position }}
-                                                </a>
-                                            </form>
-                                        </td>
-    
-                                        </td>
-                                    </tr>
-                                    @endif
+
+                                @role('hr2')
+                                @if(str_contains($form->job_category->job_category, 'ዋናው ግቢ') or 
+                                str_contains($form->job_category->job_category, 'ጢጣ'))
+                                
+                                    @continue; 
+                                
+                                @endif
+                                @endrole
+
+                                
+                                @if($form->category!='Team_Leader' &&  $form->category!='Executive' )
+                                <tr>
+                                    <td>{{ ++$j}}</td>
+                                    <td>
+                                        <form action="" method="POST"><a
+                                                href="{{ route('posDetail', $form->id) }}" class="mr-25"
+                                                data-toggle="tooltip"
+                                                data-original-title="show">{{ $form->job_category->job_category }}\{{ $form->position }}
+                                            </a>
+                                        </form>
+                                    </td>
+
+                                    </td>
+                                </tr>
+                                @endif
+                               
+                             
                                 @endforeach
                             </tbody>
                         </table>

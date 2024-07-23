@@ -217,7 +217,17 @@
                             </span>
                         </a>
                     </li>
-                  
+                    @role('hr2')
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="/pos">
+                            <i class="ion ion-ios-list-box"></i>
+                            <span class="nav-link-text">
+                                ያወዳዳሪ ኮሚቴ ውጤት(65%)
+                            </span>
+                        </a>
+                    </li>
+                    @else
                     <li class="nav-item">
 
                         <a class="nav-link" href="{{ url('positionhigh') }}">
@@ -227,6 +237,7 @@
                             </span>
                         </a>
                     </li>
+                    @endrole
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('positionresult') }}">
                             <i class="ion ion-ios-list-box"></i>
@@ -236,7 +247,7 @@
                             </span>
                         </a>
                     </li>
-                    <li class="nav-item active">
+                    {{-- <li class="nav-item active">
 
                         <span class="nav-link-text"> አጠቃላይ ውጤት </span> 
                         <li class="nav-item">
@@ -258,7 +269,7 @@
                                 </span>
                             </a>
                         </li>  
-                        </li> 
+                        </li>  --}}
                 @endrole
                         @role('president')
                             <li class="nav-item">
