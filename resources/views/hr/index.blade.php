@@ -42,7 +42,7 @@
 
 
 
-                                        @role('hr')
+                                        @role('hr|hr2')
                                             {{-- <th> አሁን ያሉበት የትምህርት ደረጃና የትምህርት ዝግጅት</th> --}}
                                             <th>Submittedby HR</th>
 
@@ -913,7 +913,7 @@
                                     <th>የትምህርት ደረጃና የትምህርት ዝግጅት</th> --}}
 
 
-                                    @role('hr')
+                                    @role('hr|hr2')
                                         <th>SubmittedBy HR</th>
                                         <th>የሰው ኃይል ግምገማ</th>
                                     @endrole
@@ -965,7 +965,7 @@
                                                 </form>
                                             </td>
                                         @endrole
-                                        @role('hr')
+                                        @role('hr|hr2')
                                             <td>{{ $form->submit }}</td>
                                             <td><a class="btn  btn-dark " type="submit" id="btn-evaluate"
                                                     href="{{ route('addsecond', $form->id) }}"> evaluate</a>
