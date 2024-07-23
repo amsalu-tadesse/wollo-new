@@ -30,9 +30,11 @@
                                                     <tr>
                                                         <th>ተ.ቁ</th>
                                                         <th>የመመዘኛ መስፈርቶች</th>
-                                                        @role('hr')
+                                                        
+                                                        @hasanyrole(['hr', 'hr2'])
                                                             <th>የ ማወዳደርያ ነጥብ(65%)</th>
-                                                        @endrole
+                                                        @endhasanyrole
+                                                        
                                                         @role('president')
                                                             <th>የ ማወዳደርያ ነጥብ(35%)</th>
                                                         @endrole
@@ -56,7 +58,9 @@
 
                                                         </tr>
                                                     @endrole
-                                                    @role('hr')
+                                                  
+                                                        @hasanyrole(['hr', 'hr2'])
+
                                                         <tr>
                                                             <th scope="row">1</th>
                                                             <td> ለትምህርት ዝግጅት የሚሰጥ ነጥብ</td>
@@ -94,7 +98,7 @@
                                                             <td>15</td>
 
                                                         </tr>
-                                                    @endrole
+                                                    @endhasanyrole
 
                                                 </tbody>
 
@@ -428,7 +432,9 @@
                                             @enderror
                                         </div>
                                     @endrole
-                                    @role('hr')
+                                   
+                                     @hasanyrole(['hr', 'hr2'])
+
                                         <div class="col-md-4 ">
                                             <div class="row form-group">
                                                 <label for="performance">ለትምህርት ዝግጅት የሚሰጥ ነጥብ</label>
@@ -610,7 +616,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    @endrole
+                                    @endhasanyrole
                                     <input type="hidden" name="type" value="high">
 
 
