@@ -440,9 +440,10 @@
                                     </div>
                                 </div>
                                 <div class="row mt-40">
-
                                   
                                      @hasanyrole(['hr', 'hr2'])
+
+
                                         <div class="col-md-4">
                                             <div class="row form-group">
                                                 <label for="performance">ለትምህርት ዝግጅት የሚሰጥ ነጥብ</label>
@@ -619,7 +620,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    
                                     @endhasanyrole
                                     <input type="hidden" name="type" value="low">
 
