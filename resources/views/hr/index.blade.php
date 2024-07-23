@@ -144,7 +144,8 @@
                                                 </tr>
                                             @endif
                                         @endrole
-                                        @role('hr|user|hr2')
+                                        @hasanyrole(['hr', 'user', 'hr2'])
+
                                             @if ($form->isEditable == 1)
                                                 <tr>
                                                     <td>{{ ++$j }}</td>
@@ -475,7 +476,7 @@
 
                                                 </tr>
                                             @endif
-                                        @endrole
+                                        @endhasanyrole
                                     @endforeach
 
                                 </tbody>
