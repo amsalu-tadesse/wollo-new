@@ -144,7 +144,7 @@
                                                 </tr>
                                             @endif
                                         @endrole
-                                        @role('hr|user')
+                                        @role('hr|user|hr2')
                                             @if ($form->isEditable == 1)
                                                 <tr>
                                                     <td>{{ ++$j }}</td>
