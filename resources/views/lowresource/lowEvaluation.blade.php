@@ -27,16 +27,17 @@
                                             <tr>
                                                 <th>ተ.ቁ</th>
                                                 <th>የመመዘኛ መስፈርቶች</th>
-                                                @role('hr')
+                                                 
+                                                @hasanyrole(['hr', 'hr2'])
                                                     <th>የ ማወዳደርያ ነጥብ(100%)</th>
-                                                @endrole
+                                                @endhasanyrole
 
                                             </tr>
                                         </thead>
 
                                         <tbody>
 
-                                            @role('hr')
+                                             @hasanyrole(['hr', 'hr2'])
                                                 <tr>
                                                     <th scope="row">1</th>
                                                     <td> ለትምህርት ዝግጅት የሚሰጥ ነጥብ</td>
@@ -66,7 +67,7 @@
                                                     <td>30</td>
 
                                                 </tr>
-                                            @endrole
+                                            @endhasanyrole
 
                                         </tbody>
 
@@ -440,7 +441,8 @@
                                 </div>
                                 <div class="row mt-40">
 
-                                    @role('hr')
+                                  
+                                     @hasanyrole(['hr', 'hr2'])
                                         <div class="col-md-4">
                                             <div class="row form-group">
                                                 <label for="performance">ለትምህርት ዝግጅት የሚሰጥ ነጥብ</label>
@@ -617,7 +619,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    @endrole
+                                    
+                                    @endhasanyrole
                                     <input type="hidden" name="type" value="low">
 
 
