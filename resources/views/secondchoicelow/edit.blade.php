@@ -358,7 +358,7 @@
                             </div>
                             <div class="row">
 
-                                @role('hr')
+                                @role('hr|hr2')
                                     <div class="col-md-4">
                                         <div class="row form-group">
                                             <label for="performance">ለትምህርት ዝግጅት የሚሰጥ ነጥብ</label>
