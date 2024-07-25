@@ -218,7 +218,7 @@
                         </a>
                     </li>
                     @role('hr2')
-                    <li class="nav-item">
+                    {{--<li class="nav-item">
 
                         <a class="nav-link" href="/pos">
                             <i class="ion ion-ios-list-box"></i>
@@ -226,7 +226,7 @@
                                 ያወዳዳሪ ኮሚቴ ውጤት(65%)
                             </span>
                         </a>
-                    </li>
+                    </li> --}}
                     @else
                     <li class="nav-item">
 
