@@ -27,7 +27,7 @@
                                             <tr>
                                                 <th>ተ.ቁ</th>
                                                 <th>የመመዘኛ መስፈርቶች</th>
-                                                @role('hr')
+                                                @role('hr|hr2')
                                                     <th>የ ማወዳደርያ ነጥብ(100%)</th>
                                                 @endrole
 
@@ -36,7 +36,7 @@
 
                                         <tbody>
 
-                                            @role('hr')
+                                            @role('hr|hr2')
                                                 <tr>
                                                     <th scope="row">1</th>
                                                     <td> ለትምህርት ዝግጅት የሚሰጥ ነጥብ</td>
@@ -359,7 +359,7 @@
                                 </div>
                                 <div class="row">
 
-                                    @role('hr')
+                                    @role('hr|hr2')
                                         <div class="col-md-4">
                                             <div class="row form-group">
                                                 <label for="performance">ለትምህርት ዝግጅት የሚሰጥ ነጥብ</label>
