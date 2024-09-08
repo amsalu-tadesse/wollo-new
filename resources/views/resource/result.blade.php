@@ -1214,7 +1214,7 @@
                                             <?php
                                             $j = 0;
                                             ?>
-                                            @foreach ($hrs as $i => $hr)
+                                            @foreach ($secondhrs as $i => $hr)
                                                 @if ($hr->form->choice2->position_type_id == 1)
                                                     @if ($hr->status_hr == 1 && $hr->status_president == 0)
                                                         <tr>
