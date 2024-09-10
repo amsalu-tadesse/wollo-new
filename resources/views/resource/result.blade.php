@@ -909,7 +909,7 @@
                                                                                             ክፍሉ</label>
                                                                                         <div class="col-sm-10">
                                                                                             <input type="text"
-                                                                                                value="{{ $hr->form->jobcat2->job_category }}"
+                                                                                                value="{{ $hr?->form?->jobcat2?->job_category }}"
                                                                                                 name="job_category"class="form-control "
                                                                                                 id="job_category" readonly>
                                                                                         </div>
@@ -1410,7 +1410,7 @@
                                                                                             ክፍሉ</label>
                                                                                         <div class="col-sm-10">
                                                                                             <input type="text"
-                                                                                                value="{{ $hr->form->jobcat2->job_category }}"
+                                                                                                value="{{ $hr?->form?->jobcat2?->job_category }}"
                                                                                                 name="job_category"class="form-control "
                                                                                                 id="job_category" readonly>
                                                                                         </div>
