@@ -180,48 +180,86 @@
                                         </td>
 
                                         <td>
-                                            @if($data->source == 'first_choice')
-                                                @if($data->hr)
-                                                    {{ ($data->hr->performance + $data->hr->experience + $data->hr->resultbased+$data->presidentGrade) }}
-                                                @else
-                                                    N/A
+                                        @if ($data->source == 'first_choice')
+                                                    @if ($data->hr->form->sex == 'Female')
+                                                        {{-- Calculate total and apply 3% increase --}}
+                                                        @php
+                                                            $total =
+                                                                $data->hr->performance +
+                                                                $data->hr->experience +
+                                                                $data->hr->exam +
+                                                                $data->hr->resultbased +
+                                                                $data->presidentGrade;
+                                                            $withIncrease = $total * 0.03; // Add 3%
+                                                        @endphp
+                                                        {{ $withIncrease }}
+                                                    @else
+                                                        N/A
+                                                    @endif
+                                                @elseif($data->source == 'second_choice')
+                                                    {{-- Add decision logic here --}}
+                                                    @if ($data->secondhr->form->sex == 'Female')
+                                                        {{-- Calculate total and apply 3% increase --}}
+
+                                                        @php
+                                                            $total =
+                                                                $data->secondhr->performance +
+                                                                $data->secondhr->experience +
+                                                                $data->secondhr->exam +
+                                                                $data->secondhr->resultbased +
+                                                                $data->presidentGrade;
+                                                            $withIncrease = $total * 0.03; // Add 3%
+                                                        @endphp
+                                                        {{ $withIncrease }}
+                                                    @else
+                                                        N/A
+                                                    @endif
                                                 @endif
-                                            @elseif($data->source == 'second_choice')
-                                                @if($data->secondhr)
-                                                {{ ($data->secondhr->performance + $data->secondhr->experience + $data->secondhr->resultbased+$data->presidentGrade) }}
-                                                @else
-                                                    N/A
-                                                @endif
-                                            @endif
                                         </td>
                                         <td>
-                                            @if($data->source == 'first_choice')
-                                            @if($data->hr->form->sex == 'Female')
-                                                    {{-- Calculate total and apply 3% increase --}}
-                                                    @php
-                                                        $total = $data->hr->performance + $data->hr->experience + $data->hr->resultbased + $data->presidentGrade;
-                                                        $withIncrease = $total * 1.03; // Add 3%
-                                                    @endphp
-                                                    {{ $withIncrease }}
-                                                @else
-                                                    N/A
-                                                @endif
+                                                @if ($data->source == 'first_choice')
+                                                    @if ($data->hr)
+                                                        @if ($data->hr->form->sex == 'Female')
+                                                            {{-- Calculate total and apply 3% increase --}}
+                                                            @php
+                                                                $total =
+                                                                    $data->hr->performance +
+                                                                    $data->hr->experience +
+                                                                    $data->hr->exam +
+                                                                    $data->hr->resultbased +
+                                                                    $data->presidentGrade;
+                                                                $withIncrease = $total * 1.03; // Add 3%
+                                                            @endphp
+                                                            {{ $withIncrease }}
+                                                        @else
+                                                            {{ $data->hr->performance + $data->hr->experience + $data->hr->resultbased + $data->hr->exam + $data->presidentGrade }}
+                                                        @endif
+                                                    @else
+                                                        N/A
+                                                    @endif
                                                 @elseif($data->source == 'second_choice')
-                                                {{-- Add decision logic here --}}
-                                                @if($data->secondhr->form->sex == 'Female')
-                                                    {{-- Calculate total and apply 3% increase --}}
+                                                    @if ($data->secondhr)
+                                                        @if ($data->secondhr->form->sex == 'Female')
+                                                            {{-- Calculate total and apply 3% increase --}}
 
-                                                    @php
-                                                        $total = $data->secondhr->performance + $data->secondhr->experience + $data->secondhr->resultbased+$data->presidentGrade;
-                                                        $withIncrease = $total * 1.03; // Add 3%
-                                                    @endphp
-                                                    {{ $withIncrease }}
+                                                            @php
+                                                                $total =
+                                                                    $data->secondhr->performance +
+                                                                    $data->secondhr->experience +
+                                                                    $data->secondhr->exam +
+                                                                    $data->secondhr->resultbased +
+                                                                    $data->presidentGrade;
+                                                                $withIncrease = $total * 1.03; // Add 3%
+                                                            @endphp
+                                                            {{ $withIncrease }}
+                                                        @else
+                                                            {{ $data->secondhr->performance + $data->secondhr->experience + $data->secondhr->resultbased + $data->secondhr->exam + $data->presidentGrade }}
+                                                        @endif
+                                                    @endif
                                                 @else
                                                     N/A
                                                 @endif
 
-
-                                            @endif
                                         </td>
                                         <td>
                                             @if($data->source == 'first_choice')

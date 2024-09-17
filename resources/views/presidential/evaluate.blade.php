@@ -179,11 +179,8 @@
 
                             <form action="{{ route('addPresidentPost', $id) }}" method="POST" id="add_evaluation">
                                 @csrf
-
                                 <div class="row">
                                     {{-- <div class="col-md-6"> --}}
-
-
                                     <div class="col-sm">
                                         <div class="table-wrap">
                                             <div class="table-responsive">
@@ -199,10 +196,6 @@
                                                             <th> የስራ ልምድዎ </th>
                                                             <th>የሁለት ተከታታይ የስራ አፈጻጸም አማካይ ውጤት</th>
                                                             <th>ተጨማሪ ይመልከቱ</th>
-
-
-
-
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -222,10 +215,6 @@
                                                                 @endforeach
 
                                                             </td>
-
-
-
-
                                                             <td>
                                                                 @foreach ($forms as $fo)
                                                                     <?php
@@ -255,13 +244,7 @@
                                                             <td data-toggle="collapse" data-target="#more"
                                                                 aria-expanded="false" aria-controls="collapseExample">more
                                                                 <i class='ion ion-md-arrow-round-forward'></i>
-
-
                                                             </td>
-
-
-
-
                                                         </tr>
 
                                                     </tbody>
@@ -352,13 +335,6 @@
                                             </span>
                                         @enderror
                                     </div>
-
-
-
-
-
-
-
                                 </div>
                                 <div class="form-group row mb-0 pull-right">
                                     <div class="col-sm-10">
@@ -366,16 +342,8 @@
                                             id="add_btn">save</button>
                                     </div>
                                 </div>
-
-
-
-
-
                             </form>
-
-
                         </div>
-
                     </div>
                 </section>
             </div>
